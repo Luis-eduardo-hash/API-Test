@@ -1,0 +1,6 @@
+@GranVeículos.Api_HostAddress = http://localhost:5280
+
+GET {{GranVeículos.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

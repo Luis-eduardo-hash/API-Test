@@ -1,0 +1,8 @@
+git config --global user.name luis-eduardo-h
+git config --global user.email luis53duardo@gmail.com
+
+Cli - Command Line Interface
+
+Criar um projeto API
+dotnet new webapi -o GranVeículos.Api --use-controllers
+
