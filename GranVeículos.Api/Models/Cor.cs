@@ -9,8 +9,8 @@ namespace GranVeículos.Api.Models
       [Key]  
       public int Id { get; set; }
 
-      [Required]
-      [StringLength(30)]
+    [Required]
+    [StringLength(30)]
       public string Nome { get; set; }  
     }
 }

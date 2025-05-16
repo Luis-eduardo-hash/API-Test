@@ -12,7 +12,7 @@ namespace GranVeículos.Api.Models
         [Required]
         public int Modelo { get; set; }
         [ForeignKey("ModeloId")]
-        public Modelo Model { get; set; }
+        public Modelo modelo { get; set; }
 
         [Required]
         public short AnoFabricacao { get; set; }
@@ -28,7 +28,7 @@ namespace GranVeículos.Api.Models
         [Required]
         [Column(TypeName = "numeric(10,2)")]
         public decimal Valor { get; set; }
-
+      
         [StringLength(7)]
         public string Placa { get; set; }
     }
