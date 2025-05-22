@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using GranVeículos.Api.Data;
 using GranVeículos.Api.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.FileProviders;
 
 namespace GranVeículos.Api.Controllers
 {
@@ -42,7 +43,7 @@ namespace GranVeículos.Api.Controllers
         [HttpPut("{id}")]
         public IActionResult Edit(int id, [FromBody] Cor cor)
         {
-            if (!ModelState.IsValid || id != cor.id)
+            if (!ModelState.IsValid || id != cor.Id)
                 return BadRequest("Cor informada com problemas");
             _db.Cores.Update(cor);
             _db.SaveChanges();
@@ -52,7 +53,12 @@ namespace GranVeículos.Api.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            var cor = 
+            var cor = _db.Cores.Find(id);
+            if (cor == null)
+                return NotFound("Cor não encontrada!");
+            _db.Cores.Remove(cor);
+            _db.SaveChanges();
+            return NoContent();
         }
     }
 }
